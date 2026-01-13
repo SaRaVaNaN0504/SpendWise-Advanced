@@ -10,6 +10,8 @@ from auth import hash_password, verify_password, create_access_token, verify_tok
 from models import *
 
 app = FastAPI(title="SpendWise Advanced API", version="2.0.0")
+from apscheduler.schedulers.background import BackgroundScheduler
+from reminder_service import process_bill_reminders
 
 # CORS middleware
 app.add_middleware(
