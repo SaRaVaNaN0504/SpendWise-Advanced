@@ -3,15 +3,14 @@ services:
     name: spendwise-backend
     runtime: python
     region: oregon
-    rootDir: backend
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn main:app --host 0.0.0.0 --port 8000
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.9
       - key: DATABASE_URL
-        sync: false
+        value: sqlite:///./spendwise.db
       - key: JWT_SECRET_KEY
-        generateValue: true
-      - key: JWT_ALGORITHM
-        value: HS256
+        value: your-super-secret-key-change-this-later
+      - key: ACCESS_TOKEN_EXPIRE_MINUTES
+        value: "30"

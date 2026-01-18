@@ -1,17 +1,25 @@
 # Python
 __pycache__/
-*.pyc
-*.db
-
-# Virtual environment
-venv/
+*.py[cod]
+*$py.class
+*.so
+.Python
 env/
-
-# Node
-node_modules/
-
-# Environment variables
+venv/
 .env
+.spyderproject
+.spyproject
+
+# Database
+*.db
+*.sqlite3
+spendwise.db  # Exclude your database file!
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
 
 # OS
 .DS_Store

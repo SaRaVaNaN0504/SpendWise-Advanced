@@ -13,6 +13,20 @@ app = FastAPI(title="SpendWise Advanced API", version="2.0.0")
 from apscheduler.schedulers.background import BackgroundScheduler
 from reminder_service import process_bill_reminders
 
+@app.get("/")
+def home():
+    return {
+        "message": "SpendWise API is running!",
+        "status": "healthy",
+        "docs": "/docs",
+        "health": "/health"
+    }
+
+@app.get("/health")
+def health_check():
+    return {"status": "ok", "service": "spendwise-backend"}
+
+
 # CORS middleware
 app.add_middleware(
     CORSMiddleware,
