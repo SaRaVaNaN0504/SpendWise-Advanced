@@ -28,9 +28,14 @@ def health_check():
 
 
 # CORS middleware
+# In main.py, update CORS middleware:
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=[
+        "http://localhost:3000",  # Local dev
+        "https://your-frontend-domain.vercel.app",  # Will update after deployment
+        "*"  # Temporary - remove in production
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
